@@ -3,7 +3,7 @@ import { magic } from "@/lib/magic";
 const SocialButton = ({ provider, children }) => {
   const handleSocialLogin = async () => {
     try {
-      await magic.oauth.loginWithRedirect2({
+      await magic.oauth2.loginWithRedirect({
         provider: provider,
         redirectURI: new URL("/callback", window.location.origin).href,
       });
