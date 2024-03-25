@@ -13,7 +13,7 @@ const Callback = () => {
   }, [router.query]);
 
   const finishSocialLogin = async () => {
-    let result = await magic.oauth2.getRedirectResult();
+    let result = await magic.oauth.getRedirectResult();
     console.log(result);
     authenticateWithServer(result.magic.idToken);
   };
