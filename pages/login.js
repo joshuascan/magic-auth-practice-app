@@ -234,7 +234,7 @@ const Login = () => {
           <SocialButton provider="discord">
             <FaDiscord />
           </SocialButton>
-          <SocialButton provider="twitter">
+          <SocialButton provider="facebook">
             <FaTwitter />
           </SocialButton>
         </div>

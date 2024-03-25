@@ -2,10 +2,14 @@ import { magic } from "@/lib/magic";
 
 const SocialButton = ({ provider, children }) => {
   const handleSocialLogin = async () => {
-    await magic.oauth.loginWithRedirect({
-      provider: provider,
-      redirectURI: new URL("/callback", window.location.origin).href,
-    });
+    try {
+      await magic.oauth.loginWithRedirect2({
+        provider: provider,
+        redirectURI: new URL("/callback", window.location.origin).href,
+      });
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   const capitalized = provider.charAt(0).toUpperCase() + provider.slice(1);

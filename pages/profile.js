@@ -35,7 +35,7 @@ const Profile = () => {
   const handleEmailUpdate = async (e) => {
     e.preventDefault();
     try {
-      await magic.user.updateEmail({ email: newEmail });
+      await magic.user.updateEmail({ email: "" });
       console.log(newEmail);
     } catch (error) {
       console.error(error);
@@ -45,6 +45,14 @@ const Profile = () => {
   const handleShowSettings = async () => {
     try {
       await magic.user.showSettings({ page: settingsPage });
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  const handleRevealKey = async () => {
+    try {
+      await magic.user.revealPrivateKey();
     } catch (e) {
       console.log(e);
     }
@@ -109,6 +117,12 @@ const Profile = () => {
                 onClick={handleShowSettings}
               >
                 Show Settings
+              </button>
+              <button
+                className="w-48 flex justify-center bg-gray-800 border-gray-700 text-white hover:bg-gray-700 active:bg-gray-500 border rounded-lg font-semibold text-xl mt-6 px-5 py-2.5"
+                onClick={handleRevealKey}
+              >
+                Reveal private key
               </button>
             </div>
           </div>
