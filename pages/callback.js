@@ -14,6 +14,7 @@ const Callback = () => {
 
   const finishSocialLogin = async () => {
     let result = await magic.oauth2.getRedirectResult();
+    console.log(result);
     authenticateWithServer(result.magic.idToken);
   };
 
